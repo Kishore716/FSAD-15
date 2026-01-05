@@ -23,35 +23,19 @@ public class App {
         
         //Create or insert
         employee e = new employee();
-        e.setId(4);
-        e.setFn("P");
-        e.setLn("pavan");
-        e.setSal(12.5);
-        session.save(e);
+        e.setName("Laptop");
+        e.setDescription("Gaming laptop with 16GB RAM");
+        e.setPrice(75000.50);
+        e.setQuantity(10);
+
+        session.persist(e);   // Hibernate 6+ compatible
         tx.commit();
         System.out.println("Record inserted Successfully!");
         
         
         //retrieve
         
-        employee e2 = session.find(employee.class, 2);
-        System.out.println("Record retrieved Successfully!"+" "+e2.sal);
-        
-        //update
-        employee e3 = session.find(employee.class, 3);
-        e3.setSal(2000);
-        session.update(e3);
-        Transaction tnx = session.beginTransaction();
-        tx.commit();
-        System.out.println("Record updated Successfully!");
-        
-        //delete
-        employee e4 = session.find(employee.class, 4);
-        session.delete(e3);
-        Transaction trnx = session.beginTransaction();
-        trnx.commit();
-        System.out.println("Record deleted Successfully!");
-        
+      
         
         
         session.close();
